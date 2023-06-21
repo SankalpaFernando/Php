@@ -69,24 +69,24 @@ echo "<tr><td>".$boc->getAccountNo()."</td><td>".$boc->getCustomer()."</td><td>"
 echo "<tr><td>".$hnb->getAccountNo()."</td><td>".$hnb->getCustomer()."</td><td>".$hnb->getBalance()."</td></tr>";
 echo "</table>";
 
-echo "BOC Balance: ".$boc->getBalance()."<br>";
-echo "HNB Balance: ".$hnb->getBalance()."<br>";
+echo "BOC Balance: ".round($boc->getBalance(),2)."<br>";
+echo "HNB Balance: ".round($hnb->getBalance(),2)."<br>";
 
 $boc->deposit(5000);
 $hnb->deposit(1000);
 
 echo "After Depositing<br>";
 
-echo "BOC Balance: ".$boc->getBalance()."<br>";
-echo "HNB Balance: ".$hnb->getBalance()."<br>";
+echo "BOC Balance: ".round($boc->getBalance(),2)."<br>";
+echo "HNB Balance: ".round($hnb->getBalance(),2)."<br>";
 
 $boc->calculateMonthlyIntrest();
 $hnb->calculateMonthlyIntrest();
 
 echo "After Calculating Monthly Intrest<br>";
 
-echo "BOC Balance: ".$boc->getBalance()."<br>";
-echo "HNB Balance: ".$hnb->getBalance()."<br>";
+echo "BOC Balance: ".round($boc->getBalance(),2)."<br>";
+echo "HNB Balance: ".round($hnb->getBalance(),2)."<br>";
 
 Account::modifyInterestRate();
 
@@ -106,15 +106,15 @@ Account::modifyInterestRate(4);
 $saver1->calculateMonthlyIntrest();
 $saver2->calculateMonthlyIntrest();
 
-echo "Saver One Balance: ".$saver1->getBalance()."<br>";
-echo "Saver Two Balance: ".$saver2->getBalance()."<br>";
+echo "Saver One Balance: ".round($saver1->getBalance(),2)."<br>";
+echo "Saver Two Balance: ".round($saver2->getBalance(),2)."<br>";
 
 Account::modifyInterestRate(5);
 
 $saver1->calculateMonthlyIntrest() ."<br>";
 $saver2->calculateMonthlyIntrest()."<br>";
 
-echo "Saver One Balance: ".$saver1->getBalance()."<br>";
-echo "Saver Two Balance: ".$saver2->getBalance()."<br>";
+echo "Saver One Balance: ".round($saver1->getBalance(),2)."<br>";
+echo "Saver Two Balance: ".round($saver2->getBalance(),2)."<br>";
 
 ?>
