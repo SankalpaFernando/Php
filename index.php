@@ -25,7 +25,7 @@
         </style>
     </head>
     <body>
-       <form method="post" action="./index.php">
+       <form method="post" action="index.php">
 
        <table>
             <tr>
@@ -66,7 +66,36 @@
 
                     <?php
                         if(isset($_POST['weight']) and isset($_POST['height']) and isset($_POST['metrics']) ){
-                            echo $_POST['weight'];
+                            $weight = $_POST['weight'];
+                            $height = $_POST['height'];
+                            $metrics = $_POST['metrics'];
+                            if($metrics == 'cm'){
+                                $height = $height / 100;
+                            }
+                            if($metrics == 'in'){
+                                $height = $height * 0.0254;
+                            }
+                            if($metrics == 'm'){
+                                $height = $height;
+                            }
+
+                            $bmi = $weight / ($height * $height);
+                            
+                            if($bmi < 18.5){
+                                $suggestion = "Underweight";
+                            } elseif($bmi >= 18.5 and $bmi <= 24.9){
+                                $suggestion = "Normal weight";
+
+                            } elseif($bmi >= 25 and $bmi <= 29.9){
+                                $suggestion = "Overweight";
+                            } elseif($bmi >= 30 and $bmi <= 34.9){
+                                $suggestion = "Obesity";
+                            } else{
+                                $suggestion = "Extreme Obesity";
+                            }
+
+                            echo "Your Body Mass Index is <span style='color:red'>".$bmi." </span>. This is considered <span style='color:red'>".$suggestion."</span>";
+
                         }
                     ?>
                     </h2>
@@ -74,3 +103,4 @@
        </form>
     </body>
 </html>
+
