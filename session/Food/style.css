@@ -1,0 +1,39 @@
+.form{
+    width: 50%;
+    margin: 0 auto;
+    border: 1rem solid purple;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+.form > h1{
+    text-align:center;
+}
+.form > hr{
+    width: 90%;
+    margin: 1rem auto;
+    border:.4rem solid purple;
+}
+
+form{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+input[type="submit"]{
+    margin:2rem 0; 
+    border:.5rem solid purple;
+}
+
+#pizzaQuantity,#burgerQuantity{
+    display:none;
+}
+
+.display{
+    text-align:center;
+}
+.display >p{
+    text-align:center;
+    margin:.4rem 0;
+}
